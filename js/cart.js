@@ -11,10 +11,11 @@
 function createCartModel(config) {
 	var model = createListModel(config);
 	model.getTotalPrice = function() {
+		var idx;
 		var totalPrice = 0;
-		$(this.items, function() {
-			totalPrice += this.price;
-		})
+		for (idx = 0; idx < this.items.length; ++idx) {
+		    totalPrice += this.items[idx].price;
+		}
 		return totalPrice.toFixed(2);
 	}; //getTotalPrice()
 
