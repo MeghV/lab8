@@ -8,9 +8,11 @@
 */
 
 function createCartView(config) {
-    config.cartModel = config.model;
-    config.templateView = createCartItemView(config);
+    config.cartModel = config.model; // the cart model
+    config.templateView = createCartItemView(config); // the cart template
     var view = createTemplateListView(config);
+
+    // renders total price of cart as items are added
     view.afterRender = function() {
     	this.totalPrice.html(this.model.getTotalPrice());
     }; //afterRender()

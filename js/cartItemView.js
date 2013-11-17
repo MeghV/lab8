@@ -8,11 +8,13 @@
 
 function createCartItemView(config) {
 	var view = createTemplateView(config);
+	// will remove item if it's "X" button has been clicked;
+	// this happens after cart item renders
 	view.afterRender = function(clonedTemplate, model) {
 		clonedTemplate.find('remove-item').click(function(){
 			view.cartModel.removeItem(model);
 		});
-	};
+	}; //afterRender(template, model)
 
 	return view;
 } //createCartItemView()
